@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Initial version of Landscape",
   "main": "src/server.js",
-  "repository": "https://github.com/BraulioNR/favs-back.git",
+  "repository": "https://github.com/BraulioNR/landscape-be.git",
   "author": "BraulioNR <branoleruiz@gmail.com>",
   "license": "MIT",
   "engine":{
