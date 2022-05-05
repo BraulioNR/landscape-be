@@ -1,0 +1,30 @@
+{
+  "name": "landscape-be",
+  "version": "1.0.0",
+  "description": "Initial version of Landscape",
+  "main": "src/server.js",
+  "repository": "https://github.com/BraulioNR/favs-back.git",
+  "author": "BraulioNR <branoleruiz@gmail.com>",
+  "license": "MIT",
+  "engine":{
+    "node": "16.15.0",
+    "yarn": "1.22.18",
+    "npm": "8.5.5"
+  },
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node src/server.js",
+    "dev": "cross-env NODE_ENV=development nodemon src/server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^14.3.2",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.4",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
