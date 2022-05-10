@@ -1,5 +1,5 @@
 const User = require("../models/users.models")
-const Device=require("../models/devices.models")
+const Device = require("../models/devices.models")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 
@@ -41,18 +41,18 @@ exports.login = async (req, res) => {
   }
 }
 
-exports.mydevice = (req, res) => {
+exports.mydevice = async (req, res) => {
   try {
     const { userId } = req
 
-    const user =  await User.findById({userId})
-    if (!user){
-      res.status(403).json({message:"User not found"})
+    const user = await User.findById({ userId })
+    if (!user) {
+      res.status(403).json({ message: "User not found" })
     }
-    const device= await Device.findById(user.device)
+    const device = await Device.findById(user.device)
     console.log("User.controllers=> device :")
     console.log(device)
-    res.status(200).json({device})
+    res.status(200).json({ device })
   } catch (e) {
     res.status(400).json({ error: e })
   }

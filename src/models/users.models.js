@@ -43,7 +43,7 @@ const usersSchema = new Schema(
         },
       ],
     },
-    passwod: {
+    password: {
       type: String,
       required: [true, "The password is required"],
       match: [passwordRegexp, "The password is insecure"],
