@@ -17,11 +17,7 @@ const photosSchema = new Schema(
       required: [true, "The image is required"],
     },
     rating: {
-      type: [
-        {
-          type: Number,
-        },
-      ],
+      type: Number,
     },
     auto: {
       type: Boolean,
@@ -64,15 +60,6 @@ const photosSchema = new Schema(
     device: {
       type: Schema.Types.ObjectId,
       ref: "Device",
-      default: async function (creator) {
-        try {
-          const user = await models.User.findById({ creator })
-          return user.device
-        } catch (e) {
-          console.log("return false default device in photos.model")
-          return false
-        }
-      },
     },
   },
   { timestamps: true }
