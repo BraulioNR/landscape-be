@@ -56,8 +56,6 @@ exports.mydevice = async (req, res) => {
       res.status(403).json({ message: "User not found" })
     }
     const device = await Device.findById(user.device)
-    console.log("User.controllers=> device :")
-    console.log(device)
     res.status(200).json({ device })
   } catch (e) {
     res.status(400).json({ error: e })

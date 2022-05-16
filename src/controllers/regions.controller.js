@@ -3,8 +3,6 @@ const Region = require("../models/regions.models")
 exports.create = async (req, res) => {
   try {
     const { body } = req
-    console.log("region")
-    console.log(body)
     const region = await Region.create(body)
     res.status(201).json({ message: "Region created", region })
   } catch (e) {

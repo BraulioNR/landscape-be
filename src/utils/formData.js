@@ -39,7 +39,6 @@ exports.formData = (req, res, next) => {
         }
 
         req.body[key] = res.secure_url
-        console.log(res.secure_url)
         uploadingImage = false
         uploadingCount--
 
@@ -95,7 +94,6 @@ exports.formDataUser = (req, res, next) => {
         }
 
         req.body[key] = res.secure_url
-        console.log(res.secure_url)
         uploadingImage = false
         uploadingCount--
 
@@ -151,7 +149,6 @@ exports.formDataRegion = (req, res, next) => {
         }
 
         req.body[key] = res.secure_url
-        console.log(res.secure_url)
         uploadingImage = false
         uploadingCount--
 
