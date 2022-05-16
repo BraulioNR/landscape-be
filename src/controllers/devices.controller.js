@@ -14,7 +14,6 @@ exports.create = async (req, res) => {
       return
     }
     const device = await Device.create({ ...rest, creator: userId })
-    await user.save({ validateBeforeSave: false })
     res.status(201).json({ message: "Device created", device })
   } catch (e) {
     res.status(400).json({ error: e.message })
