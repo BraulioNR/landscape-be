@@ -17,6 +17,8 @@ const morgan = require("morgan")
 const userRouter = require("./routes/users.route")
 const postRouter = require("./routes/posts.route")
 const deviceRouter = require("./routes/devices.route")
+const regionRouter = require("./routes/regions.route")
+const photoRouter = require("./routes/photos.route")
 
 /* Creating an instance of the express application. */
 const app = express()
@@ -35,4 +37,6 @@ app.get("/", (req, res) => {
 app.use("/", userRouter)
 app.use("/posts", postRouter)
 app.use("/devices", deviceRouter)
+app.use("/regions", regionRouter)
+app.use("/photos", photoRouter)
 module.exports = { app }
