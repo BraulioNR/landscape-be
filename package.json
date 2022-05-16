@@ -6,7 +6,7 @@
   "repository": "https://github.com/BraulioNR/landscape-be.git",
   "author": "BraulioNR <branoleruiz@gmail.com>",
   "license": "MIT",
-  "engine":{
+  "engine": {
     "node": "16.15.0",
     "yarn": "1.22.18",
     "npm": "8.5.5"
@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "busboy": "^1.6.0",
+    "cloudinary": "^1.29.1",
     "cors": "^2.8.5",
     "dotenv": "^14.3.2",
     "express": "^4.17.3",
