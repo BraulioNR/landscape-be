@@ -2,6 +2,7 @@ const User = require("../models/users.models")
 const Device = require("../models/devices.models")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
+const { welcome } = require("../utils/mailer")
 
 /* This is the signup function. It is creating a new user and returning a token. */
 exports.signup = async (req, res) => {
@@ -13,6 +14,7 @@ exports.signup = async (req, res) => {
     )}+${body.lastName.substring(0, 1)}`
     body.perfile = srcPerfile
     const user = await User.create(body)
+    await welcome({ email: user.email, name: user.name })
     const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, {
       expiresIn: 60 * 60 * 24 * 365,
     })
