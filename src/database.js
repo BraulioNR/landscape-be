@@ -8,8 +8,6 @@ let connection
 async function connect() {
   if (connection) return
   const uri = process.env.MONGO_URI || "mongodb://localhost:27017/dbfavs"
-  console.log("URL database.js:")
-  console.log(uri)
   const options = {
     useNewUrlParser: true,
     useUnifiedTopology: true,

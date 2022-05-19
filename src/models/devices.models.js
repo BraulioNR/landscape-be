@@ -12,6 +12,10 @@ const devicesSchema = new Schema(
       required: [true, "The brand is required"],
       trim: true,
     },
+    aliases: {
+      type: String,
+      trim: true,
+    },
     creator: {
       type: Schema.Types.ObjectId,
       ref: "User",

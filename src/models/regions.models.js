@@ -12,6 +12,10 @@ const regionsSchema = new Schema(
       required: [true, "The description is required"],
       trim: true,
     },
+    src: {
+      type: String,
+      required: [true, "The src of image of regions is required"],
+    },
     photos: {
       type: [
         {

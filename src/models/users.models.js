@@ -43,6 +43,10 @@ const usersSchema = new Schema(
         },
       ],
     },
+    perfile: {
+      type: String,
+      required: [true, "The image of perfile is required"],
+    },
     password: {
       type: String,
       required: [true, "The password is required"],

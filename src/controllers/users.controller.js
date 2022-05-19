@@ -7,6 +7,11 @@ const jwt = require("jsonwebtoken")
 exports.signup = async (req, res) => {
   try {
     const { body } = req
+    let srcPerfile = `https://ui-avatars.com/api/?rounded=true&background=random&name=${body.name.substring(
+      0,
+      1
+    )}+${body.lastName.substring(0, 1)}`
+    body.perfile = srcPerfile
     const user = await User.create(body)
     const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, {
       expiresIn: 60 * 60 * 24 * 365,
@@ -35,7 +40,8 @@ exports.login = async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, {
       expiresIn: 60 * 60 * 24 * 365,
     })
-    res.status(201).json({ token })
+    const perfile = user.perfile
+    res.status(201).json({ token, perfile })
   } catch (e) {
     res.status(400).json({ error: e.message })
   }
@@ -50,8 +56,6 @@ exports.mydevice = async (req, res) => {
       res.status(403).json({ message: "User not found" })
     }
     const device = await Device.findById(user.device)
-    console.log("User.controllers=> device :")
-    console.log(device)
     res.status(200).json({ device })
   } catch (e) {
     res.status(400).json({ error: e })
