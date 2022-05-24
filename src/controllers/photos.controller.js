@@ -53,12 +53,11 @@ exports.show = async (req, res) => {
   try {
     const {
       params: { id },
-      userId,
     } = req
 
-    const photo = await Photo.findOne({ _id: id, creator: userId })
+    const photo = await Photo.findOne({ _id: id })
       .populate("region", "name")
-      .populate("device", "model brand aliases")
+      .populate("device", "model brand name")
     if (!photo) {
       res.status(403).json({ message: "User invalid" })
       return
@@ -84,7 +83,7 @@ exports.update = async (req, res) => {
       }
     }
     if (deviceId) {
-      device = await Device.findById(deviceId)
+      const device = await Device.findById(deviceId)
       if (!device) {
         res.status(403).json({ message: "Device invalid" })
         return
@@ -134,7 +133,7 @@ exports.mylist = async (req, res) => {
         "title location image rating auto shutterSpeed aperture lens iso hdr region device"
       )
       .populate("region", "name")
-      .populate("device", "model brand aliases")
+      .populate("device", "model brand name")
 
     res.status(201).json({ message: `${photos.length} photos found`, photos })
   } catch (e) {

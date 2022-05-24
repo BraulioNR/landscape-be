@@ -63,3 +63,51 @@ exports.mydevice = async (req, res) => {
     res.status(400).json({ error: e })
   }
 }
+
+exports.show = async (req, res) => {
+  try {
+    const { userId } = req
+    const user = await User.findById(userId).select(
+      "name lastName email perfile device"
+    )
+    if (!user) {
+      res.status(403).json({ message: "User not found" })
+    }
+    res.status(200).json({ user })
+  } catch (e) {
+    res.status(400).json({ error: e })
+  }
+}
+
+exports.update = async (req, res) => {
+  try {
+    const { userId, body } = req
+    let srcPerfile = `https://ui-avatars.com/api/?rounded=true&background=random&name=${body.name.substring(
+      0,
+      1
+    )}+${body.lastName.substring(0, 1)}`
+    body.perfile = srcPerfile
+    const userbd = await User.findById(userId)
+    if (body.password && body.password === "") {
+      delete body.password
+    } else {
+      if (body.password) {
+        const isSame = await bcrypt.compare(body.password, userbd.password)
+        if (isSame) {
+          delete body.password
+        }
+        body.password = await bcrypt.hash(body.password, 10)
+      }
+    }
+    const user = await User.findByIdAndUpdate(userId, body, {
+      new: true,
+    })
+    if (!user) {
+      res.status(403).json({ message: "User did not update" })
+      return
+    }
+    res.status(201).json({ message: "User updated", user })
+  } catch (e) {
+    res.status(400).json({ error: e })
+  }
+}
