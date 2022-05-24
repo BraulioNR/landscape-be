@@ -27,7 +27,7 @@ exports.welcome = async ({ email, name }) => {
       "border-radius: 5px;width: 40%;height: 52px;background-color: #22d1b1;color: rgb(255, 255, 255);box-shadow: rgb(0 0 0 / 15%) 0px 4px 31px;text-decoration: none;display: flex;-webkit-box-pack: center;justify-content: center;flex-direction: column;text-align: center;margin:20px;",
   }
   const links = {
-    href: "https://makeitreal.camp/",
+    href: "https://landscape-nzyc3abzu-braulionr.vercel.app/",
     logo: "https://res.cloudinary.com/dw9hr6agh/image/upload/v1652726787/regions/logo-white_css_ydezkw.svg",
   }
 
