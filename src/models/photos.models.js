@@ -26,22 +26,22 @@ const photosSchema = new Schema(
     shutterSpeed: {
       type: String,
       trim: true,
-      default: "1/1 sec.",
+      default: "auto",
     },
     aperture: {
       type: String,
       trim: true,
-      default: "f/5,6",
+      default: "auto",
     },
     lens: {
       type: String,
       trim: true,
-      default: "Wide",
+      default: "auto",
     },
     iso: {
       type: String,
       trim: true,
-      default: "800",
+      default: "auto",
     },
     hdr: {
       type: Boolean,
