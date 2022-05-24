@@ -2,6 +2,11 @@ const { Schema, model } = require("mongoose")
 
 const devicesSchema = new Schema(
   {
+    name: {
+      type: String,
+      trim: true,
+      required: [true, "The name is required"],
+    },
     model: {
       type: String,
       required: [true, "The model is required"],
@@ -10,10 +15,6 @@ const devicesSchema = new Schema(
     brand: {
       type: String,
       required: [true, "The brand is required"],
-      trim: true,
-    },
-    aliases: {
-      type: String,
       trim: true,
     },
     creator: {
