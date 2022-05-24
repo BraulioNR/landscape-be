@@ -23,6 +23,10 @@ exports.formData = (req, res, next) => {
 
   bus.on("field", (key, value) => {
     req.body[key] = value
+    if (key == "location") {
+      let arr = value.split(",")
+      req.body[key] = arr
+    }
   })
 
   bus.on("file", (key, file, _filename) => {
@@ -86,7 +90,7 @@ exports.formDataUser = (req, res, next) => {
 
     const stream = cloudinary.uploader.upload_stream(
       {
-        upload_preset: "makeitreal-top",
+        upload_preset: "ml_default",
       },
       (err, res) => {
         if (err) {
