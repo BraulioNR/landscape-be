@@ -27,7 +27,7 @@ exports.welcome = async ({ email, name }) => {
       "border-radius: 5px;width: 40%;height: 52px;background-color: #22d1b1;color: rgb(255, 255, 255);box-shadow: rgb(0 0 0 / 15%) 0px 4px 31px;text-decoration: none;display: flex;-webkit-box-pack: center;justify-content: center;flex-direction: column;text-align: center;margin:20px;",
   }
   const links = {
-    href: "https://landscape-nzyc3abzu-braulionr.vercel.app/",
+    href: "https://landscape-fe.vercel.app/",
     logo: "https://res.cloudinary.com/dw9hr6agh/image/upload/v1652726787/regions/logo-white_css_ydezkw.svg",
   }
 
@@ -35,7 +35,6 @@ exports.welcome = async ({ email, name }) => {
     from: "Braulio Nole <branoler@aol.com>",
     to: email,
     subject: "Welcome Landscape!",
-    // html: '<div style="background-color:goldenrod"><h1 style="color: lightblue">Welcome to Landscape ' + user.name + '</h1></div>',
     html: `
     <div>
     <table cellpadding="0" cellspacing="0" style="${styles.table}" width="100%">
