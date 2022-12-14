@@ -23,10 +23,6 @@ exports.formData = (req, res, next) => {
 
   bus.on("field", (key, value) => {
     req.body[key] = value
-    if (key == "location") {
-      let arr = value.split(",")
-      req.body[key] = arr
-    }
   })
 
   bus.on("file", (key, file, _filename) => {

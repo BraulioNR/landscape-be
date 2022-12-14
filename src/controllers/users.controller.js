@@ -88,9 +88,13 @@ exports.update = async (req, res) => {
     )}+${body.lastName.substring(0, 1)}`
     body.perfile = srcPerfile
     const userbd = await User.findById(userId)
+    console.log(body)
     if (body.password && body.password === "") {
+      console.log("dentro de if")
+      console.log(body)
       delete body.password
     } else {
+      console.log("dentro de else")
       if (body.password) {
         const isSame = await bcrypt.compare(body.password, userbd.password)
         if (isSame) {
@@ -99,6 +103,8 @@ exports.update = async (req, res) => {
         body.password = await bcrypt.hash(body.password, 10)
       }
     }
+    console.log(body)
+    console.log("Por actualizr usuario")
     const user = await User.findByIdAndUpdate(userId, body, {
       new: true,
     })

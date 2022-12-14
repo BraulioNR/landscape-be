@@ -83,7 +83,7 @@ exports.update = async (req, res) => {
       }
     }
     if (deviceId) {
-      const device = await Device.findById(deviceId)
+      device = await Device.findById(deviceId)
       if (!device) {
         res.status(403).json({ message: "Device invalid" })
         return
